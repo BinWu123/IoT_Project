@@ -5,7 +5,7 @@ a = Analysis(
     ['AirDrum.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('drum_kit.png', '.'), ('highlight.png', '.'), ('snare.wav', '.'), ('hihat.wav', '.'), ('bass.wav', '.'), ('cymbal.wav', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
