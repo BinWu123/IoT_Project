@@ -1,3 +1,0 @@
-([('AirDrum',
-   '/Users/binwu/Desktop/CSCE438-Internet_of_THings/Project/IoT_Project/dist/AirDrum',
-   'EXECUTABLE')],)
