@@ -6,8 +6,8 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char* ssid     = "NU-IoT";
-const char* password = "xslvwhdp";
+const char* ssid     = "Ken phone";
+const char* password = "aaaaaaaa";
 
 void initSharedBuffer();
 void initStatInfo();
