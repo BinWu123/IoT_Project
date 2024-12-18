@@ -2,17 +2,38 @@
 
 SSCMA AI;
 
-/* Drum regions defined:
-  Top left : [ 0,0; 0,100; 100,0; 100,100 ]
-  Top right : [ 380, 0; 380,100; 480,0; 480,100 ]
-  Bottom left: [ 0,480; 0,380; 100,380; 100,480 ]
-  Bottom right: [ 380,380; 480,380; 380,480; 480,480 ]
-*/
+// Drum regions defined:
+
+// Top Left 
+#define TOP_LEFT_X_MIN 0
+#define TOP_LEFT_X_MAX 100
+#define TOP_LEFT_Y_MIN 0
+#define TOP_LEFT_Y_MAX 100
+
+// Top Right
+#define TOP_RIGHT_X_MIN 380
+#define TOP_RIGHT_X_MAX 480
+#define TOP_RIGHT_Y_MIN 0
+#define TOP_RIGHT_Y_MAX 100
+
+// Bottom Left
+#define BOTTOM_LEFT_X_MIN 0
+#define BOTTOM_LEFT_X_MAX 100
+#define BOTTOM_LEFT_Y_MIN 380
+#define BOTTOM_LEFT_Y_MAX 480
+
+// Bottom Right
+#define BOTTOM_RIGHT_X_MIN 380
+#define BOTTOM_RIGHT_X_MAX 480
+#define BOTTOM_RIGHT_Y_MIN 380
+#define BOTTOM_RIGHT_Y_MAX 480
 
 void setup()
 {
     AI.begin();
     Serial.begin(9600);
+
+    // Need to set up PinMode for sound output
 }
 
 void loop()
@@ -29,6 +50,8 @@ void loop()
 
         for (int i = 0; i < AI.boxes().size(); i++)
         {
+            int x = AI.boxes()[i].x;
+            int y = AI.boxes()[i].y;
             Serial.print("Box[");
             Serial.print(i);
             Serial.print("] target=");
@@ -43,6 +66,27 @@ void loop()
             Serial.print(AI.boxes()[i].w);
             Serial.print(", h=");
             Serial.println(AI.boxes()[i].h);
+            // Check if x and y are within the defined regions
+            if (x >= TOP_LEFT_X_MIN && x <= TOP_LEFT_X_MAX &&
+                y >= TOP_LEFT_Y_MIN && y <= TOP_LEFT_Y_MAX)
+            {
+                Serial.println("Top Left Region detected!");
+            }
+            else if (x >= TOP_RIGHT_X_MIN && x <= TOP_RIGHT_X_MAX &&
+                     y >= TOP_RIGHT_Y_MIN && y <= TOP_RIGHT_Y_MAX)
+            {
+                Serial.println("Top Right Region detected!");
+            }
+            else if (x >= BOTTOM_LEFT_X_MIN && x <= BOTTOM_LEFT_X_MAX &&
+                     y >= BOTTOM_LEFT_Y_MIN && y <= BOTTOM_LEFT_Y_MAX)
+            {
+                Serial.println("Bottom Left Region detected!");
+            }
+            else if (x >= BOTTOM_RIGHT_X_MIN && x <= BOTTOM_RIGHT_X_MAX &&
+                     y >= BOTTOM_RIGHT_Y_MIN && y <= BOTTOM_RIGHT_Y_MAX)
+            {
+                Serial.println("Bottom Right Region detected!");
+            }
         }
         for (int i = 0; i < AI.classes().size(); i++)
         {
