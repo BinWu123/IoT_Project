@@ -71,21 +71,25 @@ void loop()
                 y >= TOP_LEFT_Y_MIN && y <= TOP_LEFT_Y_MAX)
             {
                 Serial.println("Top Left Region detected!");
+                // play sound
             }
             else if (x >= TOP_RIGHT_X_MIN && x <= TOP_RIGHT_X_MAX &&
                      y >= TOP_RIGHT_Y_MIN && y <= TOP_RIGHT_Y_MAX)
             {
                 Serial.println("Top Right Region detected!");
+                // play sound
             }
             else if (x >= BOTTOM_LEFT_X_MIN && x <= BOTTOM_LEFT_X_MAX &&
                      y >= BOTTOM_LEFT_Y_MIN && y <= BOTTOM_LEFT_Y_MAX)
             {
                 Serial.println("Bottom Left Region detected!");
+                // play sound
             }
             else if (x >= BOTTOM_RIGHT_X_MIN && x <= BOTTOM_RIGHT_X_MAX &&
                      y >= BOTTOM_RIGHT_Y_MIN && y <= BOTTOM_RIGHT_Y_MAX)
             {
                 Serial.println("Bottom Right Region detected!");
+                // play sound
             }
         }
         for (int i = 0; i < AI.classes().size(); i++)
