@@ -1,9 +1,6 @@
 #include <Seeed_Arduino_SSCMA.h>
 #include <WiFi.h>
 
-#include "app_httpd.h"
-#include "app_httpd.cpp"
-
 // ===========================
 // Enter your WiFi credentials
 // ===========================
