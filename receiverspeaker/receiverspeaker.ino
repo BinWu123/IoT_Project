@@ -30,7 +30,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.println(len);
   Serial.print("String: ");
   Serial.println(myData.a);
-  Serial.print("detection: ");
+  Serial.print("detection count: ");
   Serial.println(myData.b);
   Serial.print("inference: ");
   Serial.println(myData.c);

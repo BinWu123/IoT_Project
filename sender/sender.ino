@@ -61,7 +61,7 @@ void loop() {
 
     strcpy(myData.a, "Detection");
     myData.b = AI.boxes().size(); // Example: number of detected boxes
-    Serial.println(myData.b);
+    //Serial.println(myData.b);
     myData.c = AI.perf().inference; // Example: inference time
     myData.d = true; // Example: detection flag
     
