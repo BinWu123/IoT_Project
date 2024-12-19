@@ -5,28 +5,28 @@ SSCMA AI;
 // Drum regions defined:
 
 // Top Left 
-#define TOP_LEFT_X_MIN 0
-#define TOP_LEFT_X_MAX 100
-#define TOP_LEFT_Y_MIN 0
-#define TOP_LEFT_Y_MAX 100
+#define TOP_LEFT_X_MIN 300
+#define TOP_LEFT_X_MAX 480
+#define TOP_LEFT_Y_MIN 200
+#define TOP_LEFT_Y_MAX 330
 
 // Top Right
-#define TOP_RIGHT_X_MIN 380
-#define TOP_RIGHT_X_MAX 480
-#define TOP_RIGHT_Y_MIN 0
-#define TOP_RIGHT_Y_MAX 100
+#define TOP_RIGHT_X_MIN 220
+#define TOP_RIGHT_X_MAX 330
+#define TOP_RIGHT_Y_MIN 120
+#define TOP_RIGHT_Y_MAX 300
 
 // Bottom Left
-#define BOTTOM_LEFT_X_MIN 0
-#define BOTTOM_LEFT_X_MAX 100
-#define BOTTOM_LEFT_Y_MIN 380
-#define BOTTOM_LEFT_Y_MAX 480
+#define BOTTOM_LEFT_X_MIN 150
+#define BOTTOM_LEFT_X_MAX 200
+#define BOTTOM_LEFT_Y_MIN 200
+#define BOTTOM_LEFT_Y_MAX 330
 
 // Bottom Right
-#define BOTTOM_RIGHT_X_MIN 380
-#define BOTTOM_RIGHT_X_MAX 480
-#define BOTTOM_RIGHT_Y_MIN 380
-#define BOTTOM_RIGHT_Y_MAX 480
+#define BOTTOM_RIGHT_X_MIN 0
+#define BOTTOM_RIGHT_X_MAX 150
+#define BOTTOM_RIGHT_Y_MIN 180
+#define BOTTOM_RIGHT_Y_MAX 230
 
 void setup()
 {
@@ -40,6 +40,7 @@ void loop()
 {
     if (!AI.invoke())
     {
+        
         Serial.println("invoke success");
         Serial.print("perf: prepocess=");
         Serial.print(AI.perf().prepocess);
@@ -47,11 +48,13 @@ void loop()
         Serial.print(AI.perf().inference);
         Serial.print(", postpocess=");
         Serial.println(AI.perf().postprocess);
+        
 
         for (int i = 0; i < AI.boxes().size(); i++)
         {
             int x = AI.boxes()[i].x;
             int y = AI.boxes()[i].y;
+            
             Serial.print("Box[");
             Serial.print(i);
             Serial.print("] target=");
@@ -66,6 +69,7 @@ void loop()
             Serial.print(AI.boxes()[i].w);
             Serial.print(", h=");
             Serial.println(AI.boxes()[i].h);
+            
             // Check if x and y are within the defined regions
             if (x >= TOP_LEFT_X_MIN && x <= TOP_LEFT_X_MAX &&
                 y >= TOP_LEFT_Y_MIN && y <= TOP_LEFT_Y_MAX)
