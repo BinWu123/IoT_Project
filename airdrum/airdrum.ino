@@ -92,6 +92,7 @@ void loop()
                 // play sound
             }
         }
+        /*
         for (int i = 0; i < AI.classes().size(); i++)
         {
             Serial.print("Class[");
@@ -141,5 +142,6 @@ void loop()
             }
             Serial.println("]");
         }
+        */
     }
 }
